@@ -60,6 +60,7 @@ export default function NavigationDrawerContainer({ children }) {
   const [triggerOpen, setTriggerOpen] = useState(false)
   return (
     <AppContainer ref={ref}>
+      {'Test'}
       <TriggerOpenContext.Provider value={{ triggerOpen, setTriggerOpen }}>
         <NavigationDrawerContext.Provider value={[failsafe, setFailsafe]}>
           {width > 0 && (

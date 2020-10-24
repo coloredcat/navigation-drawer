@@ -1,18 +1,19 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
 import SideMenu, { Controls } from './NavigationDrawer'
+
+configure({ adapter: new Adapter() })
 
 // Snapshot for Home React Component
 describe('>>>Sidemenu --- Snapshot', () => {
   it('+++capturing Snapshot of Sidemenu', () => {
-    const renderedValue = renderer
-      .create(
-        <SideMenu>
-          <Controls />
-        </SideMenu>
-      )
-      .toJSON()
-    expect(renderedValue).toMatchSnapshot()
+    const wrapper = mount(
+      <SideMenu>
+        <Controls />
+      </SideMenu>
+    )
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })
