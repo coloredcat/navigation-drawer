@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`>>>Sidemenu --- Snapshot +++capturing Snapshot of Sidemenu 1`] = `"<div class=\\"sc-dlnjPT eFWNyw\\">Test</div>"`;
+exports[`Navigation Drawer creates new snapshot 1`] = `"<div class=\\"sc-dlnjPT eFWNyw\\"><div id=\\"drawer__root\\" style=\\"padding-left: 60px; display: flex; transform: translateX(calc(-360px));\\" class=\\"sc-hKFyIo jKpTHc\\"><div class=\\"sc-eCApGN bdszxu\\"><ul class=\\"sc-jSFkmK gdvzsZ\\">Stuff</ul></div></div><div style=\\"height: 100%;\\"><div class=\\"sc-gtssRu iGNmzI\\"><button>Deactivate drawer</button></div></div></div>"`;
+
+exports[`Navigation Drawer renders without errors 1`] = `"<div class=\\"sc-dlnjPT eFWNyw\\"><div id=\\"drawer__root\\" style=\\"padding-left: 60px; display: flex; transform: translateX(calc(-360px));\\" class=\\"sc-hKFyIo jKpTHc\\"><div class=\\"sc-eCApGN bdszxu\\"><ul class=\\"sc-jSFkmK gdvzsZ\\">Stuff</ul></div></div><div style=\\"height: 100%;\\"><div class=\\"sc-gtssRu iGNmzI\\"><button>Deactivate drawer</button></div></div></div>"`;

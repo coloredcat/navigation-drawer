@@ -52,15 +52,22 @@ NavigationDrawerContainer.propTypes = {
  * Adds a navigation drawer that's accessible from all components it wraps. To override gestures import `NavigationDrawerContext`
  * @param {node} children
  */
-export default function NavigationDrawerContainer({ children }) {
-  const [{ width }, ref] = useDimensions()
+export default function NavigationDrawerContainer({ children, defaultWidth = 0 }) {
+  const [width, setWidth] = useState(0)
+
+  const measuredRef = useCallback((node) => {
+    if (defaultWidth === 0 && node !== null) {
+      setWidth(node.getBoundingClientRect().width)
+    } else {
+      setWidth(defaultWidth)
+    }
+  }, [])
 
   const [failsafe, setFailsafe] = useState(false)
 
   const [triggerOpen, setTriggerOpen] = useState(false)
   return (
-    <AppContainer ref={ref}>
-      {'Test'}
+    <AppContainer ref={measuredRef}>
       <TriggerOpenContext.Provider value={{ triggerOpen, setTriggerOpen }}>
         <NavigationDrawerContext.Provider value={[failsafe, setFailsafe]}>
           {width > 0 && (
@@ -199,6 +206,7 @@ function NavigationDrawer({ children, width, failsafe }) {
     <>
       <Drawer
         {...bind()}
+        id={'drawer__root'}
         style={{
           paddingLeft: `${-(width - widthPercentage)}px`,
           display,
