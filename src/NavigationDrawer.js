@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, config, animated, useTransition } from 'react-spring'
 import styled from 'styled-components'
-import { useDimensions } from './utils/useDimensions'
 
 /**
  * Contains a failsafe to stop the Navigation Drawer from opening
@@ -52,14 +51,12 @@ NavigationDrawerContainer.propTypes = {
  * Adds a navigation drawer that's accessible from all components it wraps. To override gestures import `NavigationDrawerContext`
  * @param {node} children
  */
-export default function NavigationDrawerContainer({ children, defaultWidth = 0 }) {
+export default function NavigationDrawerContainer({ children }) {
   const [width, setWidth] = useState(0)
 
   const measuredRef = useCallback((node) => {
-    if (defaultWidth === 0 && node !== null) {
+    if (node !== null) {
       setWidth(node.getBoundingClientRect().width)
-    } else {
-      setWidth(defaultWidth)
     }
   }, [])
 
@@ -236,7 +233,7 @@ export function Controls() {
     drawer.isActive(false)
   }
   return (
-    <Content>
+    <Content id={'drawer__controls'}>
       <button onClick={toggleDrawer}>Deactivate drawer</button>
     </Content>
   )
@@ -246,7 +243,7 @@ const Content = styled.div`
   width: 100%;
   height: 100%;
   background: white;
-  margin: 3rem 1rem 0 1rem;
+  padding: 3rem 1rem 0 1rem;
 `
 
 const AppContainer = styled.div`
