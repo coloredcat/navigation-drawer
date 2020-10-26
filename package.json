@@ -7,28 +7,22 @@
   "dependencies": {
     "lodash.debounce": "4.0.8",
     "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-spring": "9.0.0-rc.3",
     "react-use-gesture": "7.0.4",
+    "remove": "^0.1.5",
     "styled-components": "5.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
-    "babel-jest": "^24.6.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "jest": "^24.7.1",
-    "react-addons-test-utils": "15.6.2",
-    "react-test-renderer": "^16.8.6"
+    "cypress": "^5.4.0",
+    "cypress-react-unit-test": "^4.16.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "jest"
+    "cy:open": "cypress open"
   },
   "browserslist": [
     ">0.2%",

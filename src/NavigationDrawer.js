@@ -127,6 +127,7 @@ function NavigationDrawer({ children, width, failsafe }) {
 
   const menuSpring = useCallback(
     (first, last, vx, mx, cancel) => {
+      console.log('fuuuuuuck')
       if (first) menuDraggingRef.current = true
       // if this is not the first or last frame, it's a moving frame
       // then it means the user is dragging
@@ -162,6 +163,7 @@ function NavigationDrawer({ children, width, failsafe }) {
 
   const appSpring = useCallback(
     (first, last, vx, mx, my, x) => {
+      console.log('spring running', mx)
       if (first) appDraggingRef.current = true
       // if this is not the first or last frame, it's a moving frame
       // then it means the user is dragging
@@ -220,7 +222,7 @@ function NavigationDrawer({ children, width, failsafe }) {
         // 3. Render each item
         return item && <Backdrop {...bindApp()} style={style} />
       })}
-      <div {...bindApp()} style={{ height: '100%' }}>
+      <div {...bindApp()} id={'app__root'} style={{ height: '100%' }}>
         {children}
       </div>
     </>
